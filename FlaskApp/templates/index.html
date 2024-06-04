@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="news-validator">
+        <h1 style="color :blue;">Verify the Truth</h1>
+        <form action="/analyze" method="POST">
+            <textarea name="news_text" placeholder="Paste the news article here..." rows="12" cols="90"></textarea>
+            <br>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if prediction %}
+        <h2>Result: {{ prediction }}</h2>
+        <p>Original Article: {{ text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
